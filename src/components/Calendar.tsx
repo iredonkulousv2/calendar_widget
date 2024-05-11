@@ -51,7 +51,7 @@ const Calendar = ({maxRange} :CalendarProps ) => {
 
   return (
     <div className='calendar-container'>
-        <div className="table-header" style={{display: 'flex'}}>
+        <div className="table-header">
             { weekdays.map((weekday,idx) => (
                 <div className={`${weekday === 'S' && idx === 0 ? 'sunday' : ''} weekday`}>
                     <p>{weekday}</p>
@@ -62,7 +62,7 @@ const Calendar = ({maxRange} :CalendarProps ) => {
         <div className="calendar">
         {Array.from({length: 6}).map((_,idx) => (
             <>
-                <div className="calendar-header">
+                <div className="calendar-header" >
                     <h2>{months[currentDay.getMonth() + idx ]} {currentDay.getFullYear()}</h2>
                 </div>
                 <div className="calendar-body">
