@@ -32,13 +32,15 @@ const Calendar = ({maxRange} :CalendarProps ) => {
 
 
     const changeRange = (day: Day) => {
+
         const clickedDay = new Date(day.year, day.month, day.number)
+
         clickedDay.setHours(0, 0, 0, 0);
         const clickedNumerical = clickedDay.getTime();
         startDay.setHours(0,0,0,0)
         const startNumerical = startDay.getTime()
 
-        const range = maxRange *  24 * 60 * 60 * 1000
+        const range = (maxRange - 1) *  24 * 60 * 60 * 1000
 
         if(clickedNumerical - startNumerical <= range && clickedNumerical - startNumerical >= 0){
             setEndDay(clickedDay)
@@ -53,7 +55,7 @@ const Calendar = ({maxRange} :CalendarProps ) => {
     <div className='calendar-container'>
         <div className="table-header">
             { weekdays.map((weekday,idx) => (
-                <div className={`${weekday === 'S' && idx === 0 ? 'sunday' : ''} weekday`}>
+                <div key={`${weekday}${idx}`}className={`${weekday === 'S' && idx === 0 ? 'sunday' : ''} weekday`}>
                     <p>{weekday}</p>
                 </div>
                 ))
@@ -61,7 +63,7 @@ const Calendar = ({maxRange} :CalendarProps ) => {
         </div>
         <div className="calendar">
         {Array.from({length: 6}).map((_,idx) => (
-            <>
+            <div key={idx}>
                 <div className="calendar-header" >
                     <h2>{months[currentDay.getMonth() + idx ]} {currentDay.getFullYear()}</h2>
                 </div>
@@ -76,7 +78,7 @@ const Calendar = ({maxRange} :CalendarProps ) => {
                             />
                     </div>
                 </div>
-             </>
+             </div>
         ))}
         </div>
     </div>

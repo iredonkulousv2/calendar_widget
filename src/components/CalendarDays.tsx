@@ -46,14 +46,17 @@ const CalendarDays = ({day, changeRange, idx,startDay,endDay} : CalendarDaysProp
     return (
         <div className="table-content">
         {
-          currentDays.map((day) => {
+          currentDays.map((day,) => {
             return (
+             
               <div 
+              key={`${day.month}${day.number}`}
               className={`calendar-day ${day.currentMonth ? 'current' : ''} ${day.startSelected ? 'selected' : ''} ${day.sunday ? 'sunday' : ''} ${day.endSelected ? 'selected' : ''} ${day.inRange && day.currentMonth ? 'inrange' : ''} ${(day.startSelected || day.endSelected) && day.currentMonth ? 'isselected' : ''}`}
               onClick={() => changeRange(day)}>
                 <p className={(day.currentMonth ? "" : "hidden")}>{day.number}</p>
               
               </div>
+              
             )
           })
         }
