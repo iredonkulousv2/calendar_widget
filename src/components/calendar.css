@@ -1,0 +1,104 @@
+.calendar-container {
+    background-color: #f2f5fa;
+    border-radius: 20px;
+    overflow-y: auto;
+   
+}
+
+.calendar {
+    width: 100%;
+    height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .calendar-header {
+    height: 4rem;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    background-color: #e7ebf3;
+    border-radius: 15px;
+    padding-left: 15px
+  }
+  
+  .calendar-body {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .table-header {
+    height: '3rem';
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: black;
+    font-weight: bold;
+ 
+  }
+  
+  .weekday {
+    display: flex;
+    width: 100px;
+    text-align: center;
+    justify-content: center;
+
+  }
+  
+  .table-content {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .calendar-day {
+    width: calc(100% /7);
+    height: 4rem;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .isselected {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+   
+  }
+
+  .inrange {
+    background-color: rgb(200, 199, 199);
+  }
+  
+  .calendar-day:hover {
+    cursor: pointer
+  }
+  
+  .calendar-day p {
+    color: #a6a6a6;
+  }
+  
+
+  .current p {
+    color: #000000;
+  }
+
+  .sunday p {
+    color: red
+  }
+  
+  .selected p {
+    color: white;
+    font-weight: bold;
+   
+  }
+
+  .hidden {
+    visibility: hidden;
+}
